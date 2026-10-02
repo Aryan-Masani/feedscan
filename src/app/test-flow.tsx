@@ -126,7 +126,11 @@ export default function TestFlowScreen() {
 
         // Complete & Navigate to Result Screen
         setTimeout(() => {
-          const resultData = SCRIPTED_RESULTS[selectedSampleType];
+          const resultData = {
+            ...SCRIPTED_RESULTS[selectedSampleType],
+            id: `RES-${selectedSampleType.toUpperCase()}-${Date.now()}`,
+            testDate: 'Just now',
+          };
           setCurrentResult(resultData);
           addTestResult(resultData);
           router.replace('/result');

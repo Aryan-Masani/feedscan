@@ -186,9 +186,9 @@ export default function HomeOrDashboardScreen() {
           </TouchableOpacity>
         </View>
 
-        {history.slice(0, 4).map((test) => (
+        {history.filter(Boolean).slice(0, 4).map((test, idx) => (
           <TouchableOpacity
-            key={test.id}
+            key={test.id ?? `history-item-${idx}`}
             style={styles.testCard}
             onPress={() => handleViewResult(test)}
             activeOpacity={0.8}>

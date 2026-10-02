@@ -121,9 +121,9 @@ export default function HistoryScreen() {
 
         {/* Test Result Cards List */}
         <View style={styles.testsList}>
-          {filteredTests.map((test) => (
+          {filteredTests.filter(Boolean).map((test, idx) => (
             <TouchableOpacity
-              key={test.id}
+              key={test.id ?? `hist-${idx}`}
               style={styles.testCard}
               onPress={() => handleSelectTest(test)}
               activeOpacity={0.85}>
